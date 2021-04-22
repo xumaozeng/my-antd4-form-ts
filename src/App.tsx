@@ -1,5 +1,7 @@
+import TestForm from "./pages/TestForm";
+
 function App() {
-  return <h3>react typescript antd4 form</h3>;
+  return <TestForm />;
 }
 
 export default App;
