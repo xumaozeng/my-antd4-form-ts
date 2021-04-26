@@ -1,7 +1,11 @@
 import React from "react";
-import Form from "../components/index";
+import Form, { Field } from "../components/index";
 
 const TestForm: React.FC = props => {
-  return <Form></Form>;
+  return (
+    <Form>
+      <Field />
+    </Form>
+  );
 };
 export default TestForm;

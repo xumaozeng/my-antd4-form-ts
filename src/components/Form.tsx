@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 
 interface FormProps {}
-const Form: React.FC<FormProps> = props => {
+const Form: React.FC<FormProps> = ({ children }) => {
   useEffect(() => {}, []);
-  return <div>Form</div>;
+  return <div>{children}</div>;
 };
 export default Form;
