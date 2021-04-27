@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { ReactNode, useEffect } from "react";
 
-interface FieldProps {}
-const Field: React.FC<FieldProps> = props => {
+interface FieldProps {
+  children?: ReactNode;
+}
+const Field: React.FC<FieldProps> = ({ children }: FieldProps) => {
   useEffect(() => {}, []);
-  return <div>Field</div>;
+  return <div>{children}</div>;
 };
 export default Field;

@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { ReactNode, useEffect } from "react";
 
-interface FormProps {}
-const Form: React.FC<FormProps> = ({ children }) => {
+interface FormProps {
+  children?: ReactNode;
+}
+const Form: React.FC<FormProps> = ({ children }: FormProps) => {
   useEffect(() => {}, []);
   return <div>{children}</div>;
 };
