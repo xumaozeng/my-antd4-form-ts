@@ -7,8 +7,11 @@ const TestForm: React.FC = () => {
     <>
       <h3>Hooks+TS实现Antd4表单</h3>
       <Form>
-        <Field>
+        <Field label="用户名" name="username">
           <Input placeholder="输入用户名" />
+        </Field>
+        <Field label="密码" name="password">
+          <Input placeholder="输入密码" />
         </Field>
       </Form>
     </>

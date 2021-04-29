@@ -3,8 +3,8 @@ const Input = (props: any) => {
 };
 
 const CustomizeInput = ({ value = "", ...props }: any) => (
-  <div style={{ padding: 0 }}>
-    <Input style={{ outline: "none" }} defaultValue={value} {...props} />
+  <div style={{ padding: 10 }}>
+    <Input style={{ outline: "none" }} value={value} {...props} />
   </div>
 );
 
