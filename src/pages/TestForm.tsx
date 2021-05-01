@@ -13,6 +13,9 @@ const TestForm: React.FC = () => {
         <Field label="密码" name="password">
           <Input placeholder="输入密码" />
         </Field>
+
+        <button style={{ marginRight: 10 }}>提交</button>
+        <button>重置</button>
       </Form>
     </>
   );
