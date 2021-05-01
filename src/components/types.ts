@@ -15,8 +15,8 @@ export interface FieldEntity {
 
 // 保存回调函数
 export interface Callbacks<Values = any> {
-  onFinish?: (values: Values) => void;
-  onFinishFailed?: (errorInfo: Values) => void;
+  onFinish: (values: Values) => void;
+  onFinishFailed: (errorInfo: Values, message: any) => void;
 }
 
 // form实例对象
@@ -25,7 +25,7 @@ export interface FormInstance<Values = any> {
   getFieldsValue?: () => Values;
   resetFields?: (fields?: string[]) => void;
   setFieldsValue?: (value: any) => void;
-  submit?: () => void;
-  setCallbacks?: () => void;
+  submit: () => void;
+  setCallbacks: (callback: any) => void;
   setFieldEntities?: (field: FieldEntity) => void;
 }
