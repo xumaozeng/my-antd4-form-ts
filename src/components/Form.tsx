@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import FieldContext from "./FieldContext";
 import { Callbacks, FormInstance, Store } from "./types";
 import useForm from "./useForm";
@@ -24,13 +24,15 @@ const Form: React.FC<FormProps> = ({
   // 存取回调函数-成功和失败
   formInstance.setCallbacks({ onFinish, onFinishFailed });
 
+  // 提交
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault(); // 取消默认事件
+    e.stopPropagation(); // 阻止事件冒泡
+    formInstance.submit();
+  };
+
   return (
-    <form
-      onSubmit={e => {
-        e.preventDefault(); // 取消默认事件
-        formInstance.submit();
-      }}
-    >
+    <form onSubmit={onSubmit}>
       <FieldContext.Provider value={formInstance}>
         {children}
       </FieldContext.Provider>

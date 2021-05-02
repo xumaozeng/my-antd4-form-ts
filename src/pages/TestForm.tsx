@@ -4,6 +4,7 @@ import Input from "../components/Input";
 
 const TestForm: React.FC = () => {
   const [form] = useForm();
+
   // 表单检验成功
   const onFinish = (val: any) => {
     console.log("onFinish", val);

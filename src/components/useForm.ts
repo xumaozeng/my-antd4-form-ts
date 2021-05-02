@@ -15,14 +15,11 @@ class FormStore {
     // 组件实例数组
     this.fieldEntities = [];
     // 保存成功和失败回调函数
-    this.callbacks = {
-      onFinish: () => {},
-      onFinishFailed: () => {}
-    };
+    this.callbacks = {};
   }
 
   // 存取回调函数-成功或失败
-  setCallbacks = (newCallbacks: any) => {
+  setCallbacks = (newCallbacks: Callbacks): void => {
     this.callbacks = {
       ...this.callbacks,
       ...newCallbacks
@@ -41,16 +38,16 @@ class FormStore {
   };
 
   // get
-  getFieldsValue = () => {
+  getFieldsValue = (): Store => {
     return { ...this.store };
   };
 
-  getFieldValue = (name: string) => {
+  getFieldValue = (name: string): any => {
     return this.store[name];
   };
 
   // set
-  setFieldsValue = (newStore: any) => {
+  setFieldsValue = (newStore: Store): void => {
     // 'name': 'value'
     // 更新数据仓库
     this.store = {
@@ -95,10 +92,10 @@ class FormStore {
 
     if (err.length === 0) {
       // 校验成功onFinish
-      onFinish(this.getFieldsValue());
+      onFinish?.(this.getFieldsValue());
     } else {
       // 校验失败onFinishFailed
-      onFinishFailed(err, this.getFieldsValue());
+      onFinishFailed?.(err, this.getFieldsValue());
     }
   };
 

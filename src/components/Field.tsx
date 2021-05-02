@@ -32,13 +32,14 @@ const Field: React.FC<FieldProps> = (props: FieldProps) => {
   });
 
   // 强制更新组件
-  const onStoreChange = () => {
+  function onStoreChange() {
     forceUpdate();
-  };
+  }
 
   // 额外的属性-input
-  const getControlled = () => {
+  function getControlled() {
     const { getFieldValue, setFieldsValue } = fieldContext;
+
     return {
       value: getFieldValue(name), // get
       onChange: (e: any) => {
@@ -47,7 +48,7 @@ const Field: React.FC<FieldProps> = (props: FieldProps) => {
         setFieldsValue({ [name]: newValue });
       }
     };
-  };
+  }
 
   // 克隆组件，给其添加一些属性返回，使Field=>Input变成受控组件
   const returnChildNode = React.cloneElement(

@@ -15,14 +15,14 @@ export interface FieldEntity {
 
 // 保存回调函数
 export interface Callbacks<Values = any> {
-  onFinish: (values: Values) => void;
-  onFinishFailed: (errorInfo: Values, message: any) => void;
+  onFinish?: (values: Values) => void;
+  onFinishFailed?: (errorInfo: Values, message: Values) => void;
 }
 
 // form实例对象
 export interface FormInstance<Values = any> {
   getFieldValue: (name: string) => any;
-  getFieldsValue?: () => Values;
+  getFieldsValue: () => Values;
   resetFields?: (fields?: string[]) => void;
   setFieldsValue: (value: any) => void;
   submit: () => void;
