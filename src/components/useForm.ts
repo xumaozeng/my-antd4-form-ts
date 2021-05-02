@@ -5,29 +5,20 @@ import React from "react";
 import { Store, FieldEntity, Callbacks, FormInstance } from "./types";
 
 class FormStore {
-  store: Store;
-  fieldEntities: FieldEntity[];
-  callbacks: Callbacks;
-
-  constructor() {
-    // 数据仓库
-    this.store = {};
-    // 组件实例数组
-    this.fieldEntities = [];
-    // 保存成功和失败回调函数
-    this.callbacks = {};
-  }
+  // 数据仓库
+  private store: Store = {};
+  // 组件实例数组
+  private fieldEntities: FieldEntity[] = [];
+  // 保存成功和失败回调函数
+  private callbacks: Callbacks = {};
 
   // 存取回调函数-成功或失败
-  setCallbacks = (newCallbacks: Callbacks): void => {
-    this.callbacks = {
-      ...this.callbacks,
-      ...newCallbacks
-    };
+  private setCallbacks = (callbacks: Callbacks) => {
+    this.callbacks = callbacks;
   };
 
   // 存取组件实例
-  setFieldEntities = (field: FieldEntity) => {
+  private setFieldEntities = (field: FieldEntity) => {
     this.fieldEntities.push(field);
     return () => {
       // 取消注册
@@ -38,22 +29,19 @@ class FormStore {
   };
 
   // get
-  getFieldsValue = (): Store => {
-    return { ...this.store };
+  private getFieldsValue = (): Store => {
+    return this.store;
   };
 
-  getFieldValue = (name: string): any => {
+  private getFieldValue = (name: string): any => {
     return this.store[name];
   };
 
   // set
-  setFieldsValue = (newStore: Store): void => {
+  private setFieldsValue = (newStore: Store): void => {
     // 'name': 'value'
     // 更新数据仓库
-    this.store = {
-      ...this.store,
-      ...newStore
-    };
+    this.store = Object.assign({}, this.store, newStore);
 
     // 更新组件-forceUpdate
     this.fieldEntities.forEach(field => {
@@ -67,7 +55,7 @@ class FormStore {
   };
 
   // 校验
-  validate = () => {
+  private validate = () => {
     let err: object[] = [];
     // 实现基础功能，如输入信息就通过
     this.fieldEntities.forEach(field => {
@@ -86,7 +74,7 @@ class FormStore {
   };
 
   // 提交
-  submit = () => {
+  private submit = () => {
     const err = this.validate();
     const { onFinish, onFinishFailed } = this.callbacks;
 
@@ -100,7 +88,7 @@ class FormStore {
   };
 
   // 给用户暴露的API
-  getForm = (): FormInstance => ({
+  public getForm = (): FormInstance => ({
     getFieldValue: this.getFieldValue,
     getFieldsValue: this.getFieldsValue,
     setFieldsValue: this.setFieldsValue,
@@ -120,7 +108,7 @@ function useForm<Values = any>(
       // 默认值
       formRef.current = form;
     } else {
-      const formStore = new FormStore();
+      const formStore: FormStore = new FormStore();
       formRef.current = formStore.getForm();
     }
   }
