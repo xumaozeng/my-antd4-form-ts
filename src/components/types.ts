@@ -21,11 +21,11 @@ export interface Callbacks<Values = any> {
 
 // form实例对象
 export interface FormInstance<Values = any> {
-  getFieldValue?: (name: string) => any;
+  getFieldValue: (name: string) => any;
   getFieldsValue?: () => Values;
   resetFields?: (fields?: string[]) => void;
-  setFieldsValue?: (value: any) => void;
+  setFieldsValue: (value: any) => void;
   submit: () => void;
   setCallbacks: (callback: any) => void;
-  setFieldEntities?: (field: FieldEntity) => void;
+  setFieldEntities: (field: FieldEntity) => void;
 }

@@ -7,7 +7,10 @@ const warningFunc: any = () => {
 
 const FieldContext = React.createContext<FormInstance>({
   submit: warningFunc,
-  setCallbacks: warningFunc
+  setCallbacks: warningFunc,
+  setFieldEntities: warningFunc,
+  setFieldsValue: warningFunc,
+  getFieldValue: warningFunc
 });
 
 export default FieldContext;

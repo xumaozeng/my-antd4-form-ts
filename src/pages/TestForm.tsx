@@ -1,12 +1,22 @@
 import React from "react";
-import Form, { Field } from "../components/index";
+import Form, { Field, useForm } from "../components/index";
 import Input from "../components/Input";
 
 const TestForm: React.FC = () => {
+  const [form] = useForm();
+  // 表单检验成功
+  const onFinish = (val: any) => {
+    console.log("onFinish", val);
+  };
+
+  // 表单校验失败
+  const onFinishFailed = (val: any) => {
+    console.log("onFinishFailed", val);
+  };
   return (
     <>
       <h3>Hooks+TS实现Antd4表单</h3>
-      <Form>
+      <Form form={form} onFinish={onFinish} onFinishFailed={onFinishFailed}>
         <Field label="用户名" name="username">
           <Input placeholder="输入用户名" />
         </Field>
