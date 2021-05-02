@@ -10,6 +10,7 @@ interface FieldProps {
   label?: string;
   name: string;
   children?: ReactNode;
+  rules?: object[];
 }
 const Field: React.FC<FieldProps> = (props: FieldProps) => {
   const { children, label, name } = props;

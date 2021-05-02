@@ -40,10 +40,10 @@ class FormStore {
   // set
   private setFieldsValue = (newStore: Store): void => {
     // 'name': 'value'
-    // 更新数据仓库
+    // 第一步：更新数据仓库
     this.store = Object.assign({}, this.store, newStore);
 
-    // 更新组件-forceUpdate
+    // 第二步：更新组件-forceUpdate
     this.fieldEntities.forEach(field => {
       // 更新对应name上的field，而不是每次都全部更新
       Object.keys(newStore).forEach(k => {

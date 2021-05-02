@@ -2,6 +2,9 @@ import React from "react";
 import Form, { Field, useForm } from "../components/index";
 import Input from "../components/Input";
 
+const nameRules = { required: true, message: "请输入姓名！" };
+const passwordRules = { required: true, message: "请输入密码！" };
+
 const TestForm: React.FC = () => {
   const [form] = useForm();
 
@@ -18,10 +21,10 @@ const TestForm: React.FC = () => {
     <>
       <h3>Hooks+TS实现Antd4表单</h3>
       <Form form={form} onFinish={onFinish} onFinishFailed={onFinishFailed}>
-        <Field label="用户名" name="username">
+        <Field label="用户名" name="username" rules={[nameRules]}>
           <Input placeholder="输入用户名" />
         </Field>
-        <Field label="密码" name="password">
+        <Field label="密码" name="password" rules={[passwordRules]}>
           <Input placeholder="输入密码" />
         </Field>
 
