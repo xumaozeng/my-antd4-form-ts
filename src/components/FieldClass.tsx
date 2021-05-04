@@ -10,6 +10,8 @@ interface FieldProps {
 }
 
 class FieldClass extends Component<FieldProps, {}> {
+  // 使用declare 需要@babel/plugin-transform-typescript
+  // declare context: React.ContextType<typeof FieldContext>;
   // 使用context
   public static contextType = FieldContext;
 

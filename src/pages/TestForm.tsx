@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import Form, { FieldHook as Field, useForm } from "../components/index";
 import Input from "../components/Input";
 
@@ -17,6 +17,16 @@ const TestForm: React.FC = () => {
   const onFinishFailed = (val: any) => {
     console.log("onFinishFailed", val);
   };
+
+  // 重置
+  const onReset = (e: FormEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    form.setFieldsValue({
+      username: "",
+      password: ""
+    });
+  };
   return (
     <>
       <h3>Hooks+TS实现Antd4表单</h3>
@@ -29,7 +39,7 @@ const TestForm: React.FC = () => {
         </Field>
 
         <button style={{ marginRight: 10 }}>提交</button>
-        <button>重置</button>
+        <button onClick={onReset}>重置</button>
       </Form>
     </>
   );

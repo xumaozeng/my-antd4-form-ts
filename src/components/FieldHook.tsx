@@ -30,8 +30,7 @@ const Field: React.FC<FieldProps> = (props: FieldProps) => {
     return () => {
       unRegister();
     };
-    // eslint-disable-next-line
-  }, []);
+  }, [props, fieldContext]);
 
   // 强制更新组件
   function onStoreChange() {
