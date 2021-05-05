@@ -1,5 +1,5 @@
 import React, { FormEvent } from "react";
-import Form, { FieldHook as Field, useForm } from "../components/index";
+import Form, { Field, useForm } from "../components/index";
 import Input from "../components/Input";
 
 const nameRules = { required: true, message: "请输入姓名！" };

@@ -1,6 +1,7 @@
 import React, {
   ReactNode,
   useContext,
+  useEffect,
   useLayoutEffect,
   useReducer
 } from "react";
@@ -11,6 +12,7 @@ interface FieldProps {
   name: string;
   children?: ReactNode;
   rules?: object[];
+  initialValue?: any;
 }
 const Field: React.FC<FieldProps> = (props: FieldProps) => {
   const { children, label, name } = props;
@@ -30,6 +32,16 @@ const Field: React.FC<FieldProps> = (props: FieldProps) => {
     return () => {
       unRegister();
     };
+  }, [props, fieldContext]);
+
+  // 设置初始值
+  useEffect(() => {
+    const { setFieldsValue } = fieldContext;
+    const { name, initialValue } = props;
+
+    setFieldsValue({
+      [name]: initialValue
+    });
   }, [props, fieldContext]);
 
   // 强制更新组件

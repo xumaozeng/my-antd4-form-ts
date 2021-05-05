@@ -11,7 +11,7 @@ const FieldContext = React.createContext<FormInstance>({
   setFieldEntities: warningFunc,
   setFieldsValue: warningFunc,
   getFieldValue: warningFunc,
-  getFieldsValue: warningFunc
+  getFieldsValue: warningFunc,
 });
 
 export default FieldContext;

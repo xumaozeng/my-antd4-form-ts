@@ -1,7 +1,6 @@
 import Form from "./Form";
-import FieldHook from "./FieldHook";
-import FieldClass from "./FieldClass";
+import Field from "./Field";
 import useForm from "./useForm";
 
-export { FieldClass, useForm, FieldHook };
+export { useForm, Field };
 export default Form;
