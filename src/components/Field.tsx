@@ -36,12 +36,12 @@ const Field: React.FC<FieldProps> = (props: FieldProps) => {
 
   // 设置初始值
   useEffect(() => {
-    const { setFieldsValue } = fieldContext;
+    const { setFieldsValue, setInitialValues } = fieldContext;
     const { name, initialValue } = props;
 
-    setFieldsValue({
-      [name]: initialValue
-    });
+    setInitialValues({ [name]: initialValue });
+
+    setFieldsValue({ [name]: initialValue });
   }, [props, fieldContext]);
 
   // 强制更新组件

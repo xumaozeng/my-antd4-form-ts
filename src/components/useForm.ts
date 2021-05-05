@@ -11,6 +11,13 @@ class FormStore {
   private fieldEntities: FieldEntity[] = [];
   // 保存成功和失败回调函数
   private callbacks: Callbacks = {};
+  // 初始值
+  private initialValues: Store = {};
+
+  // 存取初始值
+  private setInitialValues = (initialStore: Store): void => {
+    this.initialValues = Object.assign({}, this.initialValues, initialStore);
+  };
 
   // 存取回调函数-成功或失败
   private setCallbacks = (callbacks: Callbacks) => {
@@ -54,6 +61,11 @@ class FormStore {
     });
   };
 
+  // 重置
+  private resetFields = (): void => {
+    this.setFieldsValue(this.initialValues);
+  };
+
   // 校验
   private validate = () => {
     let err: object[] = [];
@@ -94,6 +106,8 @@ class FormStore {
     setFieldsValue: this.setFieldsValue,
     setFieldEntities: this.setFieldEntities,
     setCallbacks: this.setCallbacks,
+    resetFields: this.resetFields,
+    setInitialValues: this.setInitialValues,
     submit: this.submit
   });
 }

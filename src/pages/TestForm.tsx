@@ -22,16 +22,18 @@ const TestForm: React.FC = () => {
   const onReset = (e: FormEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    form.setFieldsValue({
-      username: "",
-      password: ""
-    });
+    form.resetFields();
   };
   return (
     <>
       <h3>Hooks+TS实现Antd4表单</h3>
       <Form form={form} onFinish={onFinish} onFinishFailed={onFinishFailed}>
-        <Field label="用户名" name="username" rules={[nameRules]}>
+        <Field
+          label="用户名"
+          name="username"
+          initialValue="default"
+          rules={[nameRules]}
+        >
           <Input placeholder="输入用户名" />
         </Field>
         <Field label="密码" name="password" rules={[passwordRules]}>
