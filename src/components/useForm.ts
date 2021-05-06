@@ -74,11 +74,12 @@ class FormStore {
       const { name, rules } = field.props;
       let rule = rules && rules[0];
       let value = this.getFieldValue(name);
-      if (rule && rule.required && (value === undefined || value === "")) {
-        err.push({
-          [name]: rule.message,
-          value
-        });
+      if (
+        rule &&
+        rule.required &&
+        (value === undefined || value.replace(/\s*/, "") === "")
+      ) {
+        err.push({ name, err: rule.message });
       }
     });
 
