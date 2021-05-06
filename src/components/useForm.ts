@@ -77,7 +77,7 @@ class FormStore {
       if (
         rule &&
         rule.required &&
-        (value === undefined || value.replace(/\s*/, "") === "")
+        (value == undefined || value.replace(/\s*/, "") === "")
       ) {
         err.push({ name, err: rule.message });
       }
