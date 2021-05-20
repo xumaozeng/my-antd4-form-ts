@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "choerodon-ui/pro";
 import { ButtonColor } from "choerodon-ui/pro/lib/button/enum";
 
-import "./testC7N.css";
+import "./testC7N.less";
 
 interface TestC7NProps {}
 const TestC7N: React.FC<TestC7NProps> = () => {
