@@ -1,14 +1,19 @@
 import React from "react";
-import { Button } from "choerodon-ui/pro";
-import { ButtonColor } from "choerodon-ui/pro/lib/button/enum";
+import { DataSet, Form, Select, TextField } from "choerodon-ui/pro";
 
 import "./testC7N.less";
+import FormDS from "./stores/FormDS";
 
 interface TestC7NProps {}
 const TestC7N: React.FC<TestC7NProps> = () => {
+  const formDS = new DataSet(FormDS());
   return (
     <div className="testC7N">
-      <Button color={ButtonColor.primary}>猪齿鱼</Button>
+      <h1>封装表单</h1>
+      <Form dataSet={formDS}>
+        <TextField name="name" />
+        <Select name="sex" />
+      </Form>
     </div>
   );
 };

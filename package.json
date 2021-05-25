@@ -51,6 +51,6 @@
     "babel-plugin-import": "^1.13.3",
     "craco-less": "^1.17.1",
     "less": "^4.1.1",
-    "less-loader": "^9.0.0"
+    "less-loader": "7.3.0"
   }
 }
