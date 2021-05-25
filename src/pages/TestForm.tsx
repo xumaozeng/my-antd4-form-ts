@@ -1,6 +1,6 @@
 import React, { FormEvent } from "react";
-import Form, { Field, useForm } from "../components/index";
-import Input from "../components/Input";
+import Form, { Field, useForm } from "../components/Form/index";
+import Input from "../components/Form/Input";
 
 const nameRules = { required: true, message: "请输入姓名！" };
 const passwordRules = { required: true, message: "请输入密码！" };
