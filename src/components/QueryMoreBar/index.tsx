@@ -73,6 +73,7 @@ const QueryMoreBar: React.FC<QueryMoreBarProps> = ({
             columns={queryFieldsLimit}
             dataSet={queryDataSet}
             labelWidth={labelWidth}
+            useColon
             onKeyDown={(e: any) => {
               if (e.keyCode === 13) return query();
             }}
