@@ -1,7 +1,7 @@
 import React from "react";
 import { DataSet } from "choerodon-ui/pro";
 
-import "./testC7N.less";
+import "./testC7N.css";
 import FormDS from "./stores/FormDS";
 import QueryMoreBar from "../components/QueryMoreBar";
 

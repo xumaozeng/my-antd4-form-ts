@@ -25,6 +25,11 @@ const FormDS = (): DataSetProps => {
           name: "phone",
           type: FieldType.string,
           label: "联系方式"
+        },
+        {
+          name: "dadeline",
+          type: FieldType.month,
+          label: "截至日期"
         }
       ]
     })
