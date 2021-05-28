@@ -20,13 +20,8 @@ import {
   WeekPicker,
   YearPicker
 } from "choerodon-ui/pro";
-import React, {
-  ReactElement,
-  useState,
-  cloneElement,
-  isValidElement
-} from "react";
-import { isObject, isString } from "lodash";
+import React, { ReactElement, useState, cloneElement } from "react";
+import { isString } from "lodash";
 import { FieldType } from "choerodon-ui/pro/lib/data-set/enum";
 import { ButtonColor } from "choerodon-ui/pro/lib/button/enum";
 
@@ -118,27 +113,15 @@ const QueryMoreBar: React.FC<QueryMoreBarProps> = ({
 };
 
 // 获取查询列
-function getQueryFields(dataSet: DataSet, queryFields: any = {}): any {
+function getQueryFields(dataSet: DataSet): any {
   const { queryDataSet } = dataSet;
   const result: any = [];
   if (queryDataSet) {
     const { fields } = queryDataSet;
     return [...fields.entries()].reduce((list, [name, field]) => {
       if (!field.get("bind")) {
-        const props = {
-          key: name,
-          name,
-          dataSet: queryDataSet
-        };
-        const element = queryFields[name];
-        list.push(
-          isValidElement(element)
-            ? cloneElement(element, props)
-            : cloneElement(getEditorByField(field), {
-                ...props,
-                ...(isObject(element) ? element : {})
-              })
-        );
+        const props = { key: name, name };
+        list.push(cloneElement(getEditorByField(field), props));
       }
       return list;
     }, result);
